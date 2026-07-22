@@ -90,7 +90,7 @@ int main() {
             printf("4. Verificação de faixa\n");
             printf("5. Barra gráfica\n");
             printf("6. Relatório\n");
-            printf("\033[31m0. Sair\033[0m\n");
+            printf("\033[31m0. Sair da Simulação\033[0m\n");
 
             // Salva a escolha do usuário em uma variável
             printf("\nEscolha uma opção: ");
