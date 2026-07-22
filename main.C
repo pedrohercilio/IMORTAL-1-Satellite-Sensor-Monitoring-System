@@ -47,7 +47,7 @@ void exibir_barra_grafica(double media){
 // Procedimento que exibe o relatório completo
 void exibir_relatorio_completo(double a, double b, double c, double min, double max){
     double media = calcular_media(a, b, c);
-    printf("\n\033[35m====Relatório====\033[0m");
+    printf("\n\033[35mRelatório:\033[0m");
     printf("\n\033[36mMédia =\033[0m %.2lf", media);
     printf("\n\033[36mValor máximo =\033[0m %.2lf", encontrar_maximo(a, b, c));
     printf("\n\033[36mValor mínimo =\033[0m %.2lf", encontrar_minimo(a, b, c));
@@ -66,9 +66,11 @@ int main() {
     double v1, v2, v3;
     char opcao2, opcao3;
     double min, max;
+    int looping = 1;
 
     // Primeiro looping (Recebe valores, repete enquanto o usuário optar por realizar outra simulação)
-    while(1){
+    while(looping == 1){
+        int menu = 1;
         printf("\n\033[36mDigite a primeira leitura: \033[0m");
         scanf("%lf", &v1);
         printf("\n\033[36mDigite a segunda leitura: \033[0m");
@@ -80,8 +82,8 @@ int main() {
         int faixa_definida = 0;
 
         // Segundo looping (Printa o menu principal sempre que o usuário optar por realizar outra operação)
-        while(1){
-            printf("\033[34m\n======= MENU =======\033[0m\n");
+        while(menu == 1){
+            printf("\033[36m\n======= MENU =======\033[0m\n");
             printf("1. Calcular a média\n");
             printf("2. Encontrar o valor mínimo e máximo\n");
             printf("3. Desvios\n");
@@ -91,7 +93,7 @@ int main() {
             printf("\033[31m0. Sair\033[0m\n");
 
             // Salva a escolha do usuário em uma variável
-            printf("\n\033[36mEscolha uma opção: \033[0m");
+            printf("\nEscolha uma opção: ");
             int opcao;
             scanf("%d", &opcao);
 
@@ -163,31 +165,32 @@ int main() {
                 scanf(" %c", &opcao2);
                 
                 if ((opcao2 == 's') || (opcao2 == 'S')){
-                    continue;
+                    break;
                 }
                 else if ((opcao2 == 'n') || (opcao2 == 'N')){
-                break;
+                    menu = 0;
+                    break;
                 }
                 else printf("\n\033[31mDigite uma opção válida\033[0m\n");
             }
         }
-        fim_menu:
         printf("\n\033[34mFim da Simulação\033[0m\n");
 
         // Recebe se o usuário deseja realizar outra simulação com novos valores e encerra o programa caso não queira
-        
         while(1){
             printf("\n\033[36mDeseja realizar outra simulação? (s/n): \033[0m");
-            scanf(" %c", &opcao3);
-            
-            if ((opcao3 == 's') || (opcao3 == 'S')){
-                continue;
+                scanf(" %c", &opcao3);
+                
+                if ((opcao3 == 's') || (opcao3 == 'S')){
+                    break;
+                }
+                else if ((opcao3 == 'n') || (opcao3 == 'N')){
+                    printf("\n\033[34mEncerrando sistema...\033[0m");
+                    looping = 0;
+                    break;
+                }
+                else printf("\n\n\033[31mDigite uma opção válida\033[0m\n");
             }
-            else if ((opcao3 == 'n') || (opcao3 == 'N')){
-                printf("\n\033[34mEncerrando sistema...\033[0m");
-                break;
-            }
-            else printf("\n\n\033[31mDigite uma opção válida\033[0m\n");
     }
 
     return 0;
