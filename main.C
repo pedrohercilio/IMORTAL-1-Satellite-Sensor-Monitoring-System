@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <windows.h>
 
 // Função que calcula a média das 3 leituras
 double calcular_media(double a, double b, double c){
@@ -41,6 +42,7 @@ void exibir_barra_grafica(double media){
     if (media < 0) media = 0;
     for (int i = 0; i < (int)media; i++){
             printf("\033[33m*\033[0m");
+            Sleep(270);
     }
 } 
 
@@ -54,7 +56,7 @@ void exibir_relatorio_completo(double a, double b, double c, double min, double 
     desvios(a, b, c);
     verif_faixa(a, b, c, min, max);
     printf("\n\033[36mIntensidade média: \033[0m%.2lf\n", media);
-    printf("\033[31m[\033[0m"); exibir_barra_grafica(media); printf("\033[32m]\033[0m\n");
+    printf("\033[36m[\033[0m"); exibir_barra_grafica(media); printf("\033[36m]\033[0m\n");
 }
 
 
@@ -143,7 +145,7 @@ int main() {
             case 5:{
                 double media = calcular_media(v1, v2, v3);
                 printf("\n\033[36mIntensidade média: \033[0m%.2lf\n", media);
-                printf("\033[31m[\033[0m"); exibir_barra_grafica(media); printf("\033[32m]\033[0m\n");
+                printf("\033[36m[\033[0m"); exibir_barra_grafica(media); printf("\033[36m]\033[0m\n");
                 break;
             }
 
