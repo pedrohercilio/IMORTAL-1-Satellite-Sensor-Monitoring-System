@@ -42,3 +42,28 @@ Sistema desenvolvido em linguagem C para simular o módulo de controle espacial 
 - Validação de entrada;
 - Formatação de saída;
 - Estatística básica.
+
+---
+
+## 🖥️ Versão do GitHub x Versão da apresentação
+
+O código disponibilizado neste repositório foi adaptado para ser compatível com Windows, Linux e macOS, evitando dependências específicas do Windows, como a biblioteca windows.h e a função Sleep().
+
+Na apresentação em vídeo, foi utilizada uma versão equivalente em lógica e funcionalidades, com essas duas diferenças de implementação, utilizadas para fins estéticos.
+
+---
+
+## ▶️ Como compilar e executar
+ 
+```bash
+gcc main.C -o imortal
+./imortal        # Linux / macOS
+imortal.exe      # Windows
+```
+---
+
+## 👨‍💻 Autor
+
+**Pedro Hercílio Montezano Alves**
+
+GitHub: [pedrohercilio](https://github.com/pedrohercilio)
